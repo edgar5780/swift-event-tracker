@@ -791,11 +791,11 @@ public class CrashlyticsServiceAdapterMock: CrashlyticsServiceAdapter {
     public var setCustomValueForKeyCalled: Bool {
         return setCustomValueForKeyCallsCount > 0
     }
-    public var setCustomValueForKeyReceivedArguments: (value: Any, forKey: String)?
-    public var setCustomValueForKeyReceivedInvocations: [(value: Any, forKey: String)] = []
-    public var setCustomValueForKeyClosure: ((Any, String) -> Void)?
+    public var setCustomValueForKeyReceivedArguments: (value: Any?, forKey: String)?
+    public var setCustomValueForKeyReceivedInvocations: [(value: Any?, forKey: String)] = []
+    public var setCustomValueForKeyClosure: ((Any?, String) -> Void)?
 
-    public func setCustomValue(_ value: Any, forKey: String) {
+    public func setCustomValue(_ value: Any?, forKey: String) {
         setCustomValueForKeyCallsCount += 1
         setCustomValueForKeyReceivedArguments = (value: value, forKey: forKey)
         setCustomValueForKeyReceivedInvocations.append((value: value, forKey: forKey))
@@ -809,10 +809,10 @@ public class CrashlyticsServiceAdapterMock: CrashlyticsServiceAdapter {
         return setUserIDCallsCount > 0
     }
     public var setUserIDReceivedUserId: String?
-    public var setUserIDReceivedInvocations: [String] = []
-    public var setUserIDClosure: ((String) -> Void)?
+    public var setUserIDReceivedInvocations: [String?] = []
+    public var setUserIDClosure: ((String?) -> Void)?
 
-    public func setUserID(_ userId: String) {
+    public func setUserID(_ userId: String?) {
         setUserIDCallsCount += 1
         setUserIDReceivedUserId = userId
         setUserIDReceivedInvocations.append(userId)

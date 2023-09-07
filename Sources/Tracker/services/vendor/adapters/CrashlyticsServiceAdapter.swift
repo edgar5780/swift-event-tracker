@@ -21,6 +21,6 @@ public protocol CrashlyticsServiceAdapter: AnyObject {
     func record(error: Swift.Error)
     func setCrashlyticsCollectionEnabled(_ flag: Bool)
     func isCrashlyticsCollectionEnabled() -> Bool
-    func setCustomValue(_ value: Any, forKey: String)
-    func setUserID(_ userId: String)
+    func setCustomValue(_ value: Any?, forKey: String)
+    func setUserID(_ userId: String?)
 }
